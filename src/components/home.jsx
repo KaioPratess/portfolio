@@ -1,12 +1,21 @@
-const Home = () => {
+const Home = (props) => {
+  const scrollDown = () => {
+    const aboutSec = document.querySelector('.about');
+    const rect = aboutSec.getBoundingClientRect();
+    window.scrollTo({
+      top: rect.top + window.scrollY,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <section className="home">
+    <section className="home sec" data-sec={props.sec}>
       <div className="home-desc">
         <span>Hi, my name is</span>
         <h1>Kaio Prates.</h1>
         <h2>I'm a Front End Developer</h2>
       </div>
-      <div className="arrow-down">
+      <div className="arrow-down" onClick={scrollDown}>
         <svg
           width="24px"
           height="24px"

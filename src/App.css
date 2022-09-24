@@ -48,10 +48,16 @@ h3::after {
   position: relative;
 }
 
+.sec {
+  padding: 20px 200px 80px 200px;
+
+}
+
 /* Navigation */
 .navigation ul {
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   position: fixed;
   right: 0px;
   top: 220px
@@ -62,6 +68,11 @@ h3::after {
   text-align: right;
   cursor: pointer;
   padding-right: 15px;
+}
+
+.navigation ul li span {
+  display: none;
+  font-size: 0.875rem;
 }
 
 .navigation ul li::after {
@@ -77,15 +88,11 @@ h3::after {
 /* Home */
 .home {
   padding-top: 190px;
+  padding-bottom: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.home-desc {
-  padding-left: 150px;
-  padding-left: 200px;
 }
 
 .home-desc span {
@@ -119,11 +126,6 @@ h3::after {
 }
 
 /* About */
-.about {
-  padding: 80px 250px 80px 150px;
-  padding: 80px 200px 80px 200px;
-}
-
 .about-div {
   display: grid;
   grid-template-columns: 433px 1fr;
@@ -147,11 +149,6 @@ h3::after {
 }
 
 /* Skills */
-.skills {
-  padding: 80px 250px 80px 150px;
-  padding: 80px 200px 80px 200px;
-}
-
 .skills p {
   font-size: 1.125rem;
   font-weight: 400;
@@ -238,8 +235,6 @@ h3::after {
 
 /* Projects */
 .projects {
-  padding: 80px 250px 80px 150px;
-  padding: 80px 200px 80px 200px;
   height: 100vh;
 }
 
@@ -265,8 +260,6 @@ h3::after {
 
 /* Contact */
 .contact {
-  padding: 50px 250px 80px 150px;
-  padding: 50px 200px 80px 200px;
   height: 100vh;
 }
 
@@ -277,7 +270,7 @@ h3::after {
 }
 
 .contact-div1 p {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 30px;
   margin-top: 20px;
@@ -308,7 +301,7 @@ h3::after {
 }
 
 .contact-div2 p {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 22px;
 }

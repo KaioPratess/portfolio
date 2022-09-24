@@ -3,6 +3,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Navigation from './components/Navigation';
 import './App.css';
 
 function App() {
@@ -29,36 +30,21 @@ function App() {
           </svg>
         </div>
       </header>
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-
-=======
-      <div className="navigation">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Skills</li>
-          <li>Projects</li>
-          <li>Challenges</li>
-          <li>Contact</li>
-        </ul>
-      </div>
->>>>>>> 8909ca3 (Create static page)
->>>>>>> 336f9c2 (Create static page)
-      <Home />
-      <About />
-      <Skills />
+      <Navigation />
+      <Home sec="home" />
+      <About sec="about" />
+      <Skills sec="skills" />
       <Projects
         section="Projects"
         paragraph="Showcasing complete functional projects demonstrates what I can bring as value to your project. I built these projects from the ground up to demonstrate my skills in front-end development. All these projects are built so you can demo them easily. Contact me to get a complete code walkthrough."
+        sec="projects"
       />
       <Projects
         section="Coding Challenges"
         paragraph="I like to challenge myself and learn new things. Coding challenges allow me to solve new problems  with code but in a smaller scale that  a full project. Plus they are fun to do!  Each code challenge is display in their own mini sites that allow you to interact with the challenges."
+        sec="challenges"
       />
-      <Contact />
+      <Contact sec="contact" />
       <footer className="footer">
         <p>Designed & Coded by Kaio Pratess</p>
       </footer>

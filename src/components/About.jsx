@@ -1,8 +1,8 @@
 import img from '../assets/glenn-carstens-peters-npxXWgQ33ZQ-unsplash (1).jpg';
 
-const About = () => {
+const About = (props) => {
   return (
-    <section className="about">
+    <section className="about sec" data-sec={props.sec}>
       <h3>About me</h3>
       <div className="about-div">
         <div className="about-img">

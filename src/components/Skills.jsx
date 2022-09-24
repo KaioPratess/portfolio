@@ -1,6 +1,6 @@
-const Skills = () => {
+const Skills = (props) => {
   return (
-    <section className="skills">
+    <section className="skills sec" data-sec={props.sec}>
       <h3>Skills and Tools</h3>
       <p>The skills, tools and technologies I use to bring projects to life:</p>
       <div className="skills-grid">
