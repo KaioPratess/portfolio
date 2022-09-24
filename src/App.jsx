@@ -1,34 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import Home from './components/home';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header className="header">
+        <div>
+          <svg
+            width="50"
+            height="44"
+            viewBox="0 0 50 44"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M48.5 22C48.5 33.1474 38.1646 42.5 25 42.5C11.8354 42.5 1.5 33.1474 1.5 22C1.5 10.8526 11.8354 1.5 25 1.5C38.1646 1.5 48.5 10.8526 48.5 22Z"
+              stroke="white"
+              strokeWidth="3"
+            />
+            <path
+              d="M19.1136 31V13.5455H21.2273V22.2045H21.4318L29.2727 13.5455H32.0341L24.7045 21.4205L32.0341 31H29.4773L23.4091 22.8864L21.2273 25.3409V31H19.1136Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+      </header>
+
+      <Home />
+      <About />
+      <Skills />
+      <Projects
+        section="Projects"
+        paragraph="Showcasing complete functional projects demonstrates what I can bring as value to your project. I built these projects from the ground up to demonstrate my skills in front-end development. All these projects are built so you can demo them easily. Contact me to get a complete code walkthrough."
+      />
+      <Projects
+        section="Coding Challenges"
+        paragraph="I like to challenge myself and learn new things. Coding challenges allow me to solve new problems  with code but in a smaller scale that  a full project. Plus they are fun to do!  Each code challenge is display in their own mini sites that allow you to interact with the challenges."
+      />
+      <Contact />
+      <footer className="footer">
+        <p>Designed & Coded by Kaio Pratess</p>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
