@@ -29,7 +29,24 @@ function App() {
           </svg>
         </div>
       </header>
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+      <div className="navigation">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Skills</li>
+          <li>Projects</li>
+          <li>Challenges</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+>>>>>>> 8909ca3 (Create static page)
+>>>>>>> 336f9c2 (Create static page)
       <Home />
       <About />
       <Skills />
