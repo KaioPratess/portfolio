@@ -4,6 +4,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
+import projectsInfo from './assets/infos/projectsInfo';
 import './App.css';
 
 function App() {
@@ -38,11 +39,13 @@ function App() {
         section="Projects"
         paragraph="Showcasing complete functional projects demonstrates what I can bring as value to your project. I built these projects from the ground up to demonstrate my skills in front-end development. All these projects are built so you can demo them easily. Contact me to get a complete code walkthrough."
         sec="projects"
+        projects={projectsInfo}
       />
       <Projects
         section="Coding Challenges"
         paragraph="I like to challenge myself and learn new things. Coding challenges allow me to solve new problems  with code but in a smaller scale that  a full project. Plus they are fun to do!  Each code challenge is display in their own mini sites that allow you to interact with the challenges."
         sec="challenges"
+        projects={projectsInfo}
       />
       <Contact sec="contact" />
       <footer className="footer">

@@ -1,4 +1,4 @@
-import img from '../assets/glenn-carstens-peters-npxXWgQ33ZQ-unsplash (1).jpg';
+import img1 from '../assets/img/andras-vas-Bd7gNnWJBkU-unsplash (2).jpg';
 
 const About = (props) => {
   return (
@@ -6,7 +6,7 @@ const About = (props) => {
       <h3>About me</h3>
       <div className="about-div">
         <div className="about-img">
-          <img src={img} alt="About Image" />
+          <img src={img1} alt="About Image" />
         </div>
         <div className="about-desc">
           <p>

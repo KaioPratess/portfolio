@@ -1,6 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-function Navigation() {
+const Navigation = () => {
+  const [currentSection, setCurrentSection] = useState('home');
+  const nav = useRef();
+
+  useEffect(() => {
+    nav.current.childNodes.forEach((i) => {
+      if (currentSection === i.textContent.toLowerCase()) {
+        i.classList.add('current');
+      } else {
+        i.classList.remove('current');
+      }
+    });
+  }, [currentSection]);
+
   const showSecName = (e) => {
     e.target.childNodes[0].style.display = 'inline';
   };
@@ -20,6 +33,7 @@ function Navigation() {
     sections.forEach((sec) => {
       const dataSec = sec.getAttribute('data-sec');
       if (secName === dataSec) {
+        setCurrentSection(secName.toLowerCase());
         const rect = sec.getBoundingClientRect();
         window.scrollTo({
           top: rect.top + window.scrollY,
@@ -31,11 +45,12 @@ function Navigation() {
 
   return (
     <div className="navigation">
-      <ul>
+      <ul ref={nav}>
         <li
           onMouseEnter={showSecName}
           onMouseLeave={hideSecName}
           onClick={goToSection}
+          className="current"
         >
           <span>Home</span>
         </li>
@@ -77,6 +92,6 @@ function Navigation() {
       </ul>
     </div>
   );
-}
+};
 
 export default Navigation;
