@@ -70,8 +70,12 @@ const ProjectPage = (props) => {
           </li>
         </ul>
         <div className="project-links">
-          <a href={props.project.demo}>Demo</a>
-          <a href={props.project.github}>Code</a>
+          <a href={props.project.demo} target="_blank" rel="noopener">
+            Demo
+          </a>
+          <a href={props.project.github} target="_blank" rel="noopener">
+            Code
+          </a>
         </div>
       </div>
     </div>

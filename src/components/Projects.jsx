@@ -8,7 +8,11 @@ const Projects = (props) => {
   const [currentProjectObj, setCurrentProjectObj] = useState();
 
   useEffect(() => {
-    const projectName = currentProject.toLowerCase().replace(' ', '-');
+    const projectName = currentProject
+      .toLowerCase()
+      .replace(/ /g, '-')
+      .replace('?', '');
+    console.log(projectName);
     setCurrentProjectObj(props.projects[projectName]);
   }, [currentProject]);
 

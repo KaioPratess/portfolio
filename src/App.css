@@ -4,7 +4,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   color: white;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Courier, monospace;
 }
 
 img {
@@ -81,14 +81,15 @@ h3::after {
   content: '';
   width: 1px;
   height: 25px;
-  background-color: white;
+  background-color: gray;
   display: inline-block;
   vertical-align: middle;
   margin-left: 7px;
 }
 
 .navigation ul .current::after {
-  width: 3px;
+  width: 2px;
+  background-color: white;
 }
 
 /* Home */
@@ -243,7 +244,6 @@ h3::after {
 
 /* Projects */
 .projects {
-  height: 100vh;
   margin-bottom: 151px;
 }
 
@@ -380,7 +380,9 @@ h3::after {
   flex-direction: column;
   text-align: center;
   gap: 5px;
-  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, .7);
+  width: 100%;
+  padding: 10px;
 }
 
 .project-title {
@@ -484,6 +486,7 @@ h3::after {
 .photo {
   width: 500px;
   height: 500px;
+  object-fit: contain;
 }
 
 .slide-nav {
@@ -515,8 +518,19 @@ h3::after {
   font-weight: 500;
 }
 
+.project-info h4::after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  display: block;
+  background-color: rgba(255, 255, 255, .2);
+  margin-top: -5px;
+}
+
 .project-info p {
-  margin-top: -80px;
+  margin-top: -20px;
+  max-width: 50ch;
+  margin-left: 5px;
 }
 
 .project-info ul {
@@ -524,6 +538,7 @@ h3::after {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-left: 5px;
 }
 
 .project-info ul li {
@@ -542,6 +557,7 @@ h3::after {
   display: flex;
   gap: 20px;
   margin-top: 50px;
+  margin-left: 5px;
 }
 
 .project-links a {
