@@ -1,6 +1,6 @@
 const Home = (props) => {
   const scrollDown = () => {
-    const aboutSec = document.querySelector('.about');
+    const aboutSec = document.querySelector('.skills');
     const rect = aboutSec.getBoundingClientRect();
     window.scrollTo({
       top: rect.top + window.scrollY,

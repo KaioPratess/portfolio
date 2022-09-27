@@ -1,14 +1,58 @@
+import { useEffect, useRef, useState } from 'react';
 import Home from './components/home';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Navigation from './components/Navigation';
+import Navigation from './components/parts/Navigation';
+import MenuMobile from './components/parts/MenuMobile';
 import projectsInfo from './assets/infos/projectsInfo';
 import challengesInfo from './assets/infos/challengesInfo';
 import './App.css';
 
 function App() {
+  const [currentSection, setCurrentSection] = useState('home');
+  const [showMenuMobile, setShowMenuMobile] = useState(false);
+
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           const sec = entry.target.getAttribute('data-sec');
+  //           setCurrentSection(sec);
+  //         }
+  //       });
+  //     },
+  //     {
+  //       threshold: 0.3,
+  //       rootMargin: '-200px',
+  //     },
+  //   );
+
+  //   const sections = document.querySelectorAll('.sec');
+  //   sections.forEach((sec) => {
+  //     observer.observe(sec);
+  //   });
+  // }, [currentSection]);
+
+  const goToSection = (e) => {
+    const secName = e.target.textContent.toLowerCase();
+    const sections = document.querySelectorAll('.sec');
+
+    sections.forEach((sec) => {
+      const dataSec = sec.getAttribute('data-sec');
+      if (secName === dataSec) {
+        setCurrentSection(secName.toLowerCase());
+        const rect = sec.getBoundingClientRect();
+        window.scrollTo({
+          top: rect.top + window.scrollY,
+          behavior: 'smooth',
+        });
+      }
+    });
+  };
+
   return (
     <div className="App">
       <header className="header">
@@ -31,10 +75,20 @@ function App() {
             />
           </svg>
         </div>
+        {showMenuMobile && (
+          <MenuMobile
+            setShowMenuMobile={setShowMenuMobile}
+            goToSection={goToSection}
+          />
+        )}
+        <div className="menu-button" onClick={() => setShowMenuMobile(true)}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </header>
-      <Navigation />
       <Home sec="home" />
-      <About sec="about" />
+      <Navigation currentSection={currentSection} goToSection={goToSection} />
       <Skills sec="skills" />
       <Projects
         section="Projects"
@@ -48,6 +102,7 @@ function App() {
         sec="challenges"
         projects={challengesInfo}
       />
+      <About sec="about" />
       <Contact sec="contact" />
       <footer className="footer">
         <p>Designed & Coded by Kaio Pratess</p>

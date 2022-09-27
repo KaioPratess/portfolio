@@ -5,7 +5,13 @@ const Contact = (props) => {
       <div className="contact-grid">
         <div className="contact-div1">
           <p>I’m available for full time projects. Let’s work together!</p>
-          <a href="#">Say Hello</a>
+          <a
+            href="https://www.linkedin.com/in/kaioprates/"
+            target="_blank"
+            rel="noopener"
+          >
+            Say Hello
+          </a>
         </div>
         <div className="contact-div2">
           <div className="location">

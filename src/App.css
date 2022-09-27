@@ -24,6 +24,10 @@ body {
 
 .header {
   padding: 40px 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: absolute;
 }
 
@@ -49,8 +53,8 @@ h3::after {
 }
 
 .sec {
-  padding: 20px 200px 80px 200px;
-
+  padding: 20px 195px 80px 200px;
+  margin-bottom: 50px;
 }
 
 /* Navigation */
@@ -91,6 +95,77 @@ h3::after {
   width: 2px;
   background-color: white;
 }
+
+/* Menu Mobile */
+.menu-mobile {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, .1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.menu-mobile-nav {
+  width: 380px;
+  height: 100vh;
+  background-color: #020210;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 30;
+}
+
+.menu-mobile-nav nav ul {
+  list-style: none;
+  display: grid;
+  gap: 20px;
+}
+
+.menu-mobile-nav nav ul li {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+  padding: 12px 40px;
+}
+
+.menu-mobile-nav nav ul li:hover {
+  background-color: rgba(255, 255, 255, .1);
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, .1);
+}
+
+.menu-button {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  gap: 5px;
+  cursor: pointer;
+  display: none;
+  right: 20px;
+}
+
+.menu-button div {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.close-menu {
+  position: absolute;
+  top: 35px;
+  right: 25px;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
 
 /* Home */
 .home {
@@ -167,7 +242,7 @@ h3::after {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(6, 125px);
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
   gap: 40px;
   place-items: center;
   margin-top: 50px;
@@ -189,36 +264,6 @@ h3::after {
   font-size: 1.125rem;
   font-weight: 400;
   text-transform: capitalize;
-}
-
-.html {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.javascript {
-  grid-column: 3;
-  grid-row: 1;
-}
-
-.react {
-  grid-column: 4;
-  grid-row: 1;
-}
-
-.git {
-  grid-column: 5;
-  grid-row: 1;
-}
-
-.github {
-  grid-column: 6;
-  grid-row: 1;
-}
-
-.ui-design {
-  grid-column: 2;
-  grid-row: 2;
 }
 
 .skills-ongoing {
@@ -243,8 +288,10 @@ h3::after {
 }
 
 /* Projects */
-.projects {
-  margin-bottom: 151px;
+
+[data-sec='projects'], 
+[data-sec='skills'] {
+  height: 100vh;
 }
 
 .projects p {
@@ -256,8 +303,8 @@ h3::after {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 10px;
   margin-top: 50px;
 }
 
@@ -337,6 +384,7 @@ h3::after {
   line-height: 22px;
   position: absolute;
   bottom: 40px;
+  z-index: 4;
 }
 
 .social {
@@ -366,13 +414,14 @@ h3::after {
 
 /* Card */
 .card {
-  width: 500px;
+  width: 100%;
   height: 255px;
   display: flex;
   justify-content: center;
   align-items: end;
   cursor: pointer;
   position: relative;
+  z-index: 0;
 }
 
 .desc-div {
@@ -464,11 +513,6 @@ h3::after {
   position: relative;
 }
 
-.gallery-bg {
-  background-color: aqua;
-  display: flex;
-  justify-content: space-between;
-}
 
 .gallery-slide div svg {
   width: 50px;
@@ -569,4 +613,256 @@ h3::after {
   align-items: center;
   text-decoration: none;
   font-size: 1.25rem;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .header {
+    padding: 40px 15px;
+  }
+
+  .sec {
+    padding: 20px 100px 80px 100px;
+  }
+
+  .home {
+    padding-top: 190px;
+    gap: 250px;
+  }
+
+  .social {
+    left: 25px;
+  }
+
+  .skills-grid {
+    gap: 40px;
+  }
+
+  .gallery-slide, 
+  .slide-nav {
+    display: none;
+  }
+
+  .project-info {
+    padding: 0px 20px;
+  }
+
+
+  [data-sec='skills'] {
+    height: auto;
+  }
+
+}
+
+@media (max-width: 925px) {
+  .header {
+    padding: 40px;
+  }
+
+  .close-menu {
+    right: 40px;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .menu-button {
+    display: grid;
+  }
+
+  .home-desc span {
+    font-size: 1.175rem;
+  }
+
+  h3::after {
+    width: 200px;
+  }
+
+  .sec {
+    padding: 20px 40px 80px 40px;
+    height: auto;
+  }
+
+  .home {
+    padding-top: 190px;
+    gap: 250px;
+  }
+
+  
+  .home-desc h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 97px;
+  }
+  
+  .home-desc h2 {
+    font-weight: 500;
+    font-size: 2.5rem;
+    line-height: 60px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .about-div {
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .contact-div1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-div1 a {
+    margin-top: 50px;
+    width: 300px;
+    align-self: center;
+  }
+
+  .contact-div2 {
+    gap: 40px;
+  }
+
+  .contact-div2 a {
+    margin-top: 10px;
+    width: 300px;
+    justify-self: center;
+  }
+
+  .social {
+    position: static;
+    display: flex;
+    margin-top: 40px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 80px;
+  }
+
+  .social div:nth-child(3)::after {
+    display: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    display: block;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(2, 2, 16);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 690px) {
+  
+  .header {
+    padding: 25px;
+    z-index: 999;
+  }
+
+  .close-menu {
+    top: 30px;
+    right: 25px;
+    font-size: 1.5rem;
+  }
+
+  .menu-mobile-nav nav ul li {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h3::after {
+    width: 300px;
+    display: block;
+    position: absolute;
+    left: 15px;
+  }
+
+  .sec {
+    padding: 20px 35px 80px 35px;
+    margin-bottom: 0;
+  }
+
+  .home {
+    padding-top: 170px;
+  }
+
+  .home-desc span {
+    font-size: 1rem;
+  }
+
+  .home-desc h1 {
+    font-size: 2.7rem;
+    line-height: 60px;
+  }
+  
+  .home-desc h2 {
+    font-size: 1.25rem;
+    line-height: 40px;
+  }
+
+  .menu-mobile-nav {
+    align-items: start;
+    padding-top: 125px;
+    width: 100%;
+  }
+
+  .skills p,
+  .projects p,
+  .about-desc p,
+  .contact-div1 p,
+  .contact-div1 a,
+  .contact-div2 p,
+  .contact-div2 a,
+  .skills-grid div p,
+  .skills-ongoing ul li {
+    font-size: 1rem;
+  }
+
+  .skills-ongoing strong,
+  .project-title {
+    font-size: 1.25rem;
+  }
+
+  .project-category {
+    font-size: 0.75rem;
+  }
+
+  .project-info {
+    padding-right: 40px;
+  }
+
+  .project-info h4 {
+    font-size: 2.5rem;
+  }
+
+  .project-info p {
+    font-size: 0.875rem;
+  }
+
+  .project-info ul li {
+    font-size: 1rem;
+  }
+
+  .project-links a {
+    width: 150px;
+  }
+
+
 }
