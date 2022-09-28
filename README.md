@@ -6,7 +6,7 @@
 
 <div align="center">
   <h3>
-    <a href="#" target='_blank'>
+    <a href="https://kaiopratess.github.io/portfolio/" target='_blank'>
       Demo
     </a>
     <span> | </span>
@@ -71,5 +71,5 @@ $ npm start dev
 
 ## Contact
 
-- Website [kaioprates-portfolio.com](https://{your-web-site-link})
+- Website [Portfolio](https://kaiopratess.github.io/portfolio/)
 - GitHub [@KaioPratess](https://github.com/KaioPratess)
