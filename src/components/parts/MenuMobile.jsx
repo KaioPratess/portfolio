@@ -1,13 +1,9 @@
+import { useEffect, useLayoutEffect, useRef } from 'react';
+
 const MenuMobile = (props) => {
   return (
     <div className="menu-mobile">
-      <div className="menu-mobile-nav">
-        <div
-          className="close-menu"
-          onClick={() => props.setShowMenuMobile(false)}
-        >
-          X
-        </div>
+      <div className="menu-mobile-nav fade-in-right3">
         <nav className="mobile-nav">
           <ul>
             <li

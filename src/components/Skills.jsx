@@ -5,11 +5,12 @@ const Skills = (props) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-left1');
             entry.target.style.visibility = 'visible';
+            observer.unobserve(entry.target);
           }
         });
       },

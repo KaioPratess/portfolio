@@ -15,10 +15,11 @@ const Contact = (props) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, observer) => {
         if (entries[0].isIntersecting) {
           entries[0].target.classList.add('fade-in-left1');
           entries[0].target.style.visibility = 'visible';
+          observer.unobserve(entry.target);
         }
       },
       {

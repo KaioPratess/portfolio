@@ -15,6 +15,18 @@ function App() {
   const [showMenuMobile, setShowMenuMobile] = useState(false);
 
   useEffect(() => {
+    const body = document.querySelector('body');
+    const menuIcon = document.querySelector('.menu-checkbox');
+    if (showMenuMobile) {
+      body.style.overflow = 'hidden';
+      menuIcon.checked = true;
+    } else {
+      body.style.overflow = 'visible';
+      menuIcon.checked = false;
+    }
+  }, [showMenuMobile]);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -55,7 +67,7 @@ function App() {
   return (
     <div className="App">
       <header className="header fade-in-top">
-        <div>
+        <div className="header-logo">
           <a href="/">
             <svg
               width="50"
@@ -76,30 +88,37 @@ function App() {
             </svg>
           </a>
         </div>
-        {showMenuMobile && (
-          <MenuMobile
-            setShowMenuMobile={setShowMenuMobile}
-            goToSection={goToSection}
+        <label htmlFor="check" className="menu-button bar">
+          <input
+            id="check"
+            type="checkbox"
+            className="menu-checkbox"
+            onClick={() => setShowMenuMobile((prev) => !prev)}
           />
-        )}
-        <div className="menu-button" onClick={() => setShowMenuMobile(true)}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+          <span className="top-line"></span>
+          <span className="middle-line"></span>
+          <span className="bottom-line"></span>
+        </label>
       </header>
+      {showMenuMobile && (
+        <MenuMobile
+          setShowMenuMobile={setShowMenuMobile}
+          goToSection={goToSection}
+          showMenuMobile={showMenuMobile}
+        />
+      )}
       <Home sec="home" />
       <Navigation currentSection={currentSection} goToSection={goToSection} />
       <Skills sec="skills" />
       <Projects
         section="Projects"
-        paragraph="Showcasing complete functional projects demonstrates what I can bring as value to your project. I built these projects from the ground up to demonstrate my skills in front-end development. All these projects are built so you can demo them easily. Contact me to get a complete code walkthrough."
+        paragraph="Showcasing complete functional projects demonstrates what I can bring as value to your company. I built these projects from the ground up to demonstrate my skills in front-end development."
         sec="projects"
         projects={projectsInfo}
       />
       <Projects
         section="Coding Challenges"
-        paragraph="I like to challenge myself and learn new things. Coding challenges allow me to solve new problems  with code but in a smaller scale that  a full project. Plus they are fun to do!  Each code challenge is display in their own mini sites that allow you to interact with the challenges."
+        paragraph="I like to challenge myself and learn new things. Coding challenges allow me to solve new problems  with code but in a smaller scale that  a full project."
         sec="challenges"
         projects={challengesInfo}
       />

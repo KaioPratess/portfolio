@@ -33,11 +33,12 @@ const Card = (props) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-bottom3');
             entry.target.style.visibility = 'visible';
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -46,9 +47,7 @@ const Card = (props) => {
       },
     );
 
-    card.current.childNodes.forEach((el) => {
-      observer.observe(el);
-    });
+    observer.observe(card.current);
   }, []);
 
   useEffect(() => {

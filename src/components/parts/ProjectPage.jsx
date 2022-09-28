@@ -17,10 +17,8 @@ const ProjectPage = (props) => {
     return divs;
   };
 
-  console.log(props.project);
-
   return (
-    <div className="project-page">
+    <div className="project-page fade-in">
       <div
         className="close-project-page"
         onClick={() => {

@@ -11,7 +11,7 @@ const Projects = (props) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, observer) => {
         entries.forEach((entry) => {
           if (
             entry.isIntersecting &&
