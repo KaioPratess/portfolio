@@ -224,6 +224,7 @@ input[type]:checked ~ span.middle-line {
   font-size: 5rem;
   font-weight: 700;
   line-height: 97px;
+  visibility: none;
 }
 
 .typed-cursor {

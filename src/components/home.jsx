@@ -14,7 +14,6 @@ const Home = (props) => {
 
     // elRef refers to the <span> rendered below
     typed.current = new Typed(myName.current, options);
-    console.log(typed);
     return () => {
       // Make sure to destroy Typed instance during cleanup
       // to prevent memory leaks
@@ -36,7 +35,7 @@ const Home = (props) => {
       <div className="home-desc">
         <span className="fade-in-left">Hi, my name is</span>
         <h1 ref={myName}>
-          {typed.current ? typed.current.el.textContent : 'Kaio Prates.'}
+          {typed.current ? typed.current.el.textContent : ''}
         </h1>
         <h2 className="fade-in-left2">I'm a Front End Developer</h2>
       </div>
