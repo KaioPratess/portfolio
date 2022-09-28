@@ -1,9 +1,67 @@
+import { useEffect, useRef } from 'react';
+
 const Contact = (props) => {
+  const div1 = useRef();
+  const div2 = useRef();
+  const h3 = useRef();
+
+  const handleMouseOver = (e) => {
+    e.target.classList.add('rotate-center');
+  };
+
+  const handleMouseLeave = (e) => {
+    e.target.classList.remove('rotate-center');
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          entries[0].target.classList.add('fade-in-left1');
+          entries[0].target.style.visibility = 'visible';
+        }
+      },
+      {
+        threshold: 1,
+      },
+    );
+
+    observer.observe(div1.current);
+
+    const observer1 = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          entries[0].target.classList.add('fade-in-right2');
+          entries[0].target.style.visibility = 'visible';
+        }
+      },
+      {
+        threshold: 1,
+      },
+    );
+
+    observer1.observe(div2.current);
+
+    const observer2 = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          entries[0].target.classList.add('fade-in-left1');
+          entries[0].target.style.visibility = 'visible';
+        }
+      },
+      {
+        threshold: 1,
+      },
+    );
+
+    observer2.observe(h3.current);
+  }, []);
+
   return (
     <section className="contact sec" data-sec={props.sec}>
-      <h3>Contact</h3>
+      <h3 ref={h3}>Contact</h3>
       <div className="contact-grid">
-        <div className="contact-div1">
+        <div className="contact-div1" ref={div1}>
           <p>I’m available for full time projects. Let’s work together!</p>
           <a
             href="https://www.linkedin.com/in/kaioprates/"
@@ -13,7 +71,7 @@ const Contact = (props) => {
             Say Hello
           </a>
         </div>
-        <div className="contact-div2">
+        <div className="contact-div2" ref={div2}>
           <div className="location">
             <svg
               version="1.1"
@@ -95,12 +153,14 @@ const Contact = (props) => {
           <a href="#">Resume</a>
         </div>
       </div>
-      <div className="social">
+      <div className="social fade-in-bottom">
         <div>
           <a
             href="https://github.com/KaioPratess"
             target="_blank"
             rel="noopener"
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -123,6 +183,8 @@ const Contact = (props) => {
             href="https://www.instagram.com/kaioprates_/"
             target="_blank"
             rel="noopener"
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -147,6 +209,8 @@ const Contact = (props) => {
             href="https://www.linkedin.com/in/kaioprates/"
             target="_blank"
             rel="noopener"
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

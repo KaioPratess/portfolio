@@ -1,14 +1,63 @@
+import { useRef, useEffect } from 'react';
 import img1 from '../assets/img/andras-vas-Bd7gNnWJBkU-unsplash (2).jpg';
 
 const About = (props) => {
+  const h3 = useRef();
+  const img = useRef();
+  const para = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          entries[0].target.classList.add('fade-in-left1');
+          entries[0].target.style.visibility = 'visible';
+        }
+      },
+      {
+        threshold: 0.5,
+      },
+    );
+
+    observer.observe(img.current);
+
+    const observer1 = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          entries[0].target.classList.add('fade-in-right2');
+          entries[0].target.style.visibility = 'visible';
+        }
+      },
+      {
+        threshold: 0.5,
+      },
+    );
+
+    observer1.observe(para.current);
+
+    const observer2 = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          entries[0].target.classList.add('fade-in-left1');
+          entries[0].target.style.visibility = 'visible';
+        }
+      },
+      {
+        threshold: 1,
+      },
+    );
+
+    observer2.observe(h3.current);
+  }, []);
+
   return (
     <section className="about sec" data-sec={props.sec}>
-      <h3>About me</h3>
+      <h3 ref={h3}>About me</h3>
       <div className="about-div">
-        <div className="about-img">
+        <div className="about-img" ref={img}>
           <img src={img1} alt="About Image" />
         </div>
-        <div className="about-desc">
+        <div className="about-desc" ref={para}>
           <p>
             Hey! I'm a Front End developer with a passion for bringing the
             technical and visual aspects of web applications to life.

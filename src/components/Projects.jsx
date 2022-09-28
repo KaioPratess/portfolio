@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Card from './parts/Card';
 import ProjectPage from './parts/ProjectPage';
 import { nanoid } from 'nanoid';
@@ -6,6 +6,32 @@ import { nanoid } from 'nanoid';
 const Projects = (props) => {
   const [currentProject, setCurrentProject] = useState('');
   const [currentProjectObj, setCurrentProjectObj] = useState();
+
+  const sec = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (
+            entry.isIntersecting &&
+            !entry.target.classList.contains('projects-grid')
+          ) {
+            entry.target.classList.add('fade-in-left1');
+            entry.target.style.visibility = 'visible';
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 1,
+      },
+    );
+
+    sec.current.childNodes.forEach((el) => {
+      observer.observe(el);
+    });
+  }, []);
 
   useEffect(() => {
     const projectName = currentProject
@@ -47,7 +73,7 @@ const Projects = (props) => {
   };
 
   return (
-    <section className="projects sec" data-sec={props.sec}>
+    <section className="projects sec" ref={sec} data-sec={props.sec}>
       <h3>{props.section}</h3>
       <p>{props.paragraph}</p>
       <div className="projects-grid">

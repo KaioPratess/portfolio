@@ -4,13 +4,15 @@ const Navigation = (props) => {
   const nav = useRef();
 
   useEffect(() => {
-    nav.current.childNodes.forEach((i) => {
-      if (props.currentSection === i.textContent.toLowerCase()) {
-        i.classList.add('current');
-      } else {
-        i.classList.remove('current');
-      }
-    });
+    setTimeout(() => {
+      nav.current.childNodes.forEach((i) => {
+        if (props.currentSection === i.textContent.toLowerCase()) {
+          i.classList.add('current');
+        } else {
+          i.classList.remove('current');
+        }
+      });
+    }, 500);
   }, [props.currentSection]);
 
   const showSecName = (e) => {
@@ -28,7 +30,7 @@ const Navigation = (props) => {
   return (
     <div className="navigation">
       <nav className="desktop-nav">
-        <ul ref={nav}>
+        <ul ref={nav} className="fade-in-right">
           <li
             onMouseEnter={showSecName}
             onMouseLeave={hideSecName}

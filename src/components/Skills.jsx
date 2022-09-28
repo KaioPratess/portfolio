@@ -1,6 +1,30 @@
+import { useEffect, useRef } from 'react';
+
 const Skills = (props) => {
+  const sec = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-left1');
+            entry.target.style.visibility = 'visible';
+          }
+        });
+      },
+      {
+        threshold: 1,
+      },
+    );
+
+    sec.current.childNodes.forEach((el) => {
+      observer.observe(el);
+    });
+  }, []);
+
   return (
-    <section className="skills sec" data-sec={props.sec}>
+    <section className="skills sec" ref={sec} data-sec={props.sec}>
       <h3>Skills and Tools</h3>
       <p>The skills, tools and technologies I use to bring projects to life:</p>
       <div className="skills-grid">
