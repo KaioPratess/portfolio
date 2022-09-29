@@ -68,7 +68,7 @@ function App() {
     <div className="App">
       <header className="header fade-in-top">
         <div className="header-logo">
-          <a href="/">
+          <a href="/portfolio/">
             <svg
               width="50"
               height="44"

@@ -66,7 +66,7 @@ const About = (props) => {
           <p>
             I've always loved computers and technologies so around august 2021 I
             decided to start learning programming and dive head first into the
-            area. Since then I learned a lot of things and build a bunch of
+            area. Since then I learned a lot of things and built a bunch of
             small/medium web applications.
           </p>
           <p>
