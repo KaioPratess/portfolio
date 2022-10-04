@@ -82,9 +82,9 @@ const About = (props) => {
               Origamid
             </a>
             . The stack that I dominate is the triad of HTML, CSS, JavaScript,
-            and the ReactJs library. Soon I intend to learn PHP, MySql, and
-            Laravel to cover the back end of the web and start deploying
-            complete apps.
+            and the ReactJs library. Soon I intend to learn Node, Express, and
+            MySql to cover the back end of the web and start deploying complete
+            apps.
           </p>
           <p>
             My focus is coding but I know the huge difference a good design can
