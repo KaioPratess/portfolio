@@ -105,6 +105,11 @@ h3::after {
   background-color: white;
 }
 
+.components-bg {
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
 /* Menu Mobile */
 .menu-mobile {
   width: 100%;
@@ -961,6 +966,10 @@ input[type]:checked ~ span.middle-line {
     font-size: 1.5rem;
   }
 
+  .about-desc {
+    visibility: visible;
+  }
+
   h3 {
     font-size: 1.75rem;
   }
@@ -1047,4 +1056,3 @@ input[type]:checked ~ span.middle-line {
     width: 150px;
   }
 }
-

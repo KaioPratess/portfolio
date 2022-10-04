@@ -151,7 +151,13 @@ const Contact = (props) => {
             </svg>
             <p>kaio_prates@hotmail.com</p>
           </div>
-          <a href="#">Resume</a>
+          <a
+            href="https://drive.google.com/drive/folders/1lHp3DeVD9cWWV3ATumvRenSl_0eQel84?usp=sharing"
+            target="_blank"
+            rel="noopener"
+          >
+            Resume
+          </a>
         </div>
       </div>
       <div className="social fade-in-bottom">

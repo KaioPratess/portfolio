@@ -12,7 +12,6 @@ const About = (props) => {
         if (entries[0].isIntersecting) {
           entries[0].target.classList.add('fade-in-left1');
           entries[0].target.style.visibility = 'visible';
-          observer.unobserve(entry.target);
         }
       },
       {

@@ -107,23 +107,25 @@ function App() {
           showMenuMobile={showMenuMobile}
         />
       )}
-      <Home sec="home" />
-      <Navigation currentSection={currentSection} goToSection={goToSection} />
-      <Skills sec="skills" />
-      <Projects
-        section="Projects"
-        paragraph="Showcasing complete functional projects demonstrates what I can bring as value to your company. I built these projects from the ground up to demonstrate my skills in front-end development."
-        sec="projects"
-        projects={projectsInfo}
-      />
-      <Projects
-        section="Coding Challenges"
-        paragraph="I like to challenge myself and learn new things. Coding challenges allow me to solve new problems  with code but in a smaller scale that  a full project."
-        sec="challenges"
-        projects={challengesInfo}
-      />
-      <About sec="about" />
-      <Contact sec="contact" />
+      <div className="components-bg">
+        <Home sec="home" />
+        <Navigation currentSection={currentSection} goToSection={goToSection} />
+        <Skills sec="skills" />
+        <Projects
+          section="Projects"
+          paragraph="Showcasing complete functional projects demonstrates what I can bring as value to your company. I built these projects from the ground up to demonstrate my skills in front-end development."
+          sec="projects"
+          projects={projectsInfo}
+        />
+        <Projects
+          section="Coding Challenges"
+          paragraph="I like to challenge myself and learn new things. Coding challenges allow me to solve new problems  with code but in a smaller scale that  a full project."
+          sec="challenges"
+          projects={challengesInfo}
+        />
+        <About sec="about" />
+        <Contact sec="contact" />
+      </div>
       <footer className="footer">
         <p>Designed & Coded by Kaio Pratess</p>
       </footer>
